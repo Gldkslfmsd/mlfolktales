@@ -1,0 +1,10 @@
+other stories: 1910.5432098765432
+
+animal stories: 486.5897435897436
+anecdote stories: 1338.735294117647
+formula stories: 654.6666666666666
+magic stories: 2321.5882352941176
+ogre stories: 690.7142857142857
+realistic stories: 1453.857142857143
+religious stories: 754.8571428571429
+unknown stories: 1575.8125

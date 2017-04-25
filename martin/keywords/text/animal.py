@@ -7,13 +7,17 @@ def animal():
 
     vokabelbuch = {}
 
-    path = "C:\\Users\\Martin\\Desktop\\git python\\mlfolktales-master\\Fairytale Corpus\\English\\"
+    path = "../../../Fairytale Corpus/English/"
 
     sonderzeichen = ['.', ',', '"', '?', '-', '!', "'", ':', ';', '—', '[', ']']
 
     clone = path
 
-    Animal = ["Animal Tales\\Domestic Animals","Animal Tales\\Other Animals and Objects","Animal Tales\\Wild Animals","Animal Tales\\Wild Animals and Domestic Animals","Animal Tales\\Wild Animals and Humans"]
+    Animal = [ "Animal Tales/Domestic Animals",
+	"Animal Tales/Other Animals and Objects",
+	"Animal Tales/Wild Animals",
+	"Animal Tales/Wild Animals and Domestic Animals",
+	"Animal Tales/Wild Animals and Humans"]
 
 
 
@@ -27,7 +31,7 @@ def animal():
             try:
                 for filename in os.listdir(clone):
                     
-                        lines = open(clone + "\\" + filename, "r").readlines()
+                        lines = open(clone + "/" + filename, "r").readlines()
 
                         del lines [0]
                         del lines [0]

@@ -1,5 +1,7 @@
 appdirs==1.4.3
+cycler==0.10.0
 dict2xml==1.5
+matplotlib==2.0.0
 numpy==1.12.1
 packaging==16.8
 pandas==0.19.2

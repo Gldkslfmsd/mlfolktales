@@ -49,6 +49,9 @@ class Corpus():
                 path = os.path.join('Fairytale Corpus', story.get_language(), story.get_atu_level_1(), '')
             else:
                 path = os.path.join('Fairytale Corpus', story.get_language(), story.get_atu_level_1(), story.get_atu_level_2(), '')
+                
+            # this is horrible, never repeat the same code!!! and never don't catch Exception, but PathNotFoundException or 
+            # something like this...
             try:
                 with open(os.path.join(path, re.sub(r'[\\/:*?"<>|\t]', '', str(story.get_title()))+'.txt'), 'w+', encoding='utf-8') as f:
                     out_string = 'Story Title: '+str(story.get_title())+'\n'
@@ -68,6 +71,78 @@ class Corpus():
     def clean(self):
         for story in self.all_stories:
             story.clean()
+
+
+from dict2xml import dict2xml as xmlify
+import pandas as pd
+
+class AbstractFlatCorpus(Corpus):
+    DIR = None
+    FILE_SUFFIX = None
+    
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        
+    def story_to_dict(self, story):
+        return {
+            "language" : story.get_language(),
+            "level_1" : story.get_atu_level_1(),
+            "level_2" : story.get_atu_level_2(),
+            "title" : story.get_title(),
+            "id" : story.get_id(),
+            "atu" : story.get_atu_integer(),
+            "text" : story.get_text(),
+        }
+    
+    def story_to_path(self, story):
+        p = (self.DIR, "%s.%s" % (story.get_id(), self.FILE_SUFFIX))
+        return os.path.join(*p)
+    
+    def pretty_write(self):
+        os.makedirs(self.DIR, exist_ok = True)
+        stories = []
+        for story in self.all_stories:
+            self.story_to_file(story)
+            d = self.story_to_dict(story)
+            del d["text"]
+            stories.append(d)
+        df = pd.DataFrame.from_dict(stories)
+        df.to_csv("stories.csv")
+        
+    def story_to_file(self, story):
+        raise NotImplemented()
+    
+class XmlFlatCorpus(AbstractFlatCorpus):
+    DIR = "corpus_xml"
+    FILE_SUFFIX = "xml"
+    
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+    
+    def story_to_file(self, story):
+        d = self.story_to_dict(story)
+        xml = xmlify(d)
+        path = self.story_to_path(story)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(xml)
+            print("writing ", d["id"], d["title"])
+
+class TxtFlatCorpus(AbstractFlatCorpus):
+    DIR = "corpus_txt"
+    FILE_SUFFIX = "txt"
+    
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+    
+    def story_to_file(self, story):
+        path = self.story_to_path(story)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(story.get_text())
+            print("writing ", story.get_id(), story.get_title())
+
+        
+        
+
 
 class Story():
     def __init__(self, id=None, title=None, language=None, atu_type=None, text=None):

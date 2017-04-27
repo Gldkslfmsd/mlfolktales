@@ -1,4 +1,12 @@
 __author__ = 'Simon'
+
+"""
+This script crawls the stories from webpage. After successfull crawling of all desired stories it 
+saves them to 'corpora.txt' as a human-unreadable Python dict of lists of strings (or something like that).
+
+Then run 'load_corpus.py' to load it and save it by languages and story types so separate directories and textfiles.
+"""
+
 import requests
 import re
 import urllib.parse
@@ -20,6 +28,7 @@ def get_story(link, corpus_language):
     while(not successful and n <= 61):
         try:
             r = requests.get(link)
+            print("got link %s" % link)
             successful = True
         except requests.exceptions.ConnectionError:
             sleep(n)

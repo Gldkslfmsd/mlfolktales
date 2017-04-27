@@ -1,5 +1,10 @@
 __author__ = "Dominik"
 
+'''reads 'corpora.txt' created by atu_crawler.py and creates 
+-- 'stories.csv' -- stories description
+-- corpus_(txt|xml) -- flat directory with all stories
+
+'''
 
 from corpus_classes import *
 from ast import literal_eval

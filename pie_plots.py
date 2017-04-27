@@ -1,3 +1,6 @@
+__author__ = "Dominik"
+
+'''reads 'stories.csv' and creates 'pies.pdf' with some pie plots'''
 
 import pandas as pd
 import numpy as np

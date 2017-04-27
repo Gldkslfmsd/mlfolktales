@@ -1,0 +1,15 @@
+Čt dub 27 15:28:33 CEST 2017 [Dominik]
+
+Classification
+==============
+
+Data description and preprocessing:
+-- sie plots in plots/ dir
+-- let's start only with English, there are enough labeled stories (342 in
+total)
+-- let's start with atu_level_1 due to lack of data
+-- we split data by every category:
+	-- 70 % of training
+	-- 30 % of testing
+
+	252:90

@@ -24,7 +24,7 @@ def pie_table(df, title):
 	print(df)
 	print()
 	
-	table(ax,df,loc='center', colWidths=[0.17] * len(df))  # where df is your data frame
+	table(ax,df,loc='center right', colWidths=[0.17] * len(df))  # where df is your data frame
 
 	plt.savefig(pp, format="pdf")
 	plt.clf()
@@ -38,26 +38,39 @@ pie_table(f.language.value_counts(),"Number of stories with known atu_level_1 by
 #df.language.plot.pie()
 
 
-langs = ['Hungarian', 
-		 'Czech', 
-		 'Russian', 
-		 'Spanish', 
-		 'French', 
-		 'German', 
-		 'Danish', 
-		 'Dutch', 
-		 'Polish', 
-		 'Italian',
+langs = [#'Hungarian', 
+		 #'Czech', 
+		 #'Russian', 
+		 #'Spanish', 
+		 #'French', 
+		 #'German', 
+		 #'Danish', 
+		 #'Dutch', 
+		 #'Polish', 
+		 #'Italian',
 		 'English'
 		 ]
 
-for lan in set(df.language):
+levs = set(df['level_1'])
+
+for lan in langs:
 	f = df.loc[df['language'] == lan]
 	f = f.loc[f['level_1'] != "UNKNOWN"]
-	f = f.level_1.value_counts()
+	e = f.level_1.value_counts()
 	print()
-	pie_table(f, lan + " known atu_labels_1")
+	pie_table(e, lan + " known atu_labels_1")
 	print()
+	
+	print(f)
+	
+	for lev in levs:
+		f = df.loc[df['language'] == lan]
+		f = f.loc[f['level_1'] == lev]
+		try:
+			f = f.level_2.value_counts()
+			pie_table(f, lan + " -- " + lev + " atu_labels_2")
+		except TypeError:
+			print("no data")
 	
 	
 

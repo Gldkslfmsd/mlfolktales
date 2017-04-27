@@ -6,9 +6,9 @@ __author__ = "Dominik"
 
 '''
 
-from corpus_classes import *
 from ast import literal_eval
 
+from crawler.corpus_classes import *
 
 with open('corpora.txt', encoding='utf-8') as f:
     corpus_dict = literal_eval(f.read())

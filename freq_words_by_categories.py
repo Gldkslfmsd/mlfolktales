@@ -30,7 +30,7 @@ train = pd.DataFrame.from_csv("train.csv")
 categories = ['Animal Tales', 'Tales of Magic', 'Anecdotes and Jokes', 'Formula Tales', 'Religious Tales', 'Realistic Tales',
  'Tales of the Stupid Ogre']
 
-def most_freq_words_by_cat(cat, preprocess_text=None):
+def most_freq_words_by_cat(cat):
     files = [ os.path.join(DIR,"%s.txt" %f) for f in train.loc[train['level_1'] == cat].id ]
     words = Counter()
     for fn in files:
@@ -63,3 +63,10 @@ print(has_unique)
 print(len(has_unique), len(categories))
 for w,_ in unique_freq:
     print(w)
+
+f = open("keywords_for_features.py", "w")
+f.write("# file generated automaticaly by freq_words_by_categories.py\n")
+f.write("keywords = ")
+f.write(str([w for w,_ in unique_freq]))
+f.write("\n")
+f.close()

@@ -17,11 +17,18 @@ total)
 	
 Feature selection:
 -- most frequent words in each category
-    -- remove diacritics and stopwords because they are the most frequent in all texts and we can't destinguish them by it
+    -- remove diacritics and stopwords because they are the most frequent in all texts and we can't distinguish them by it
     -- take N mfw for each category
         -- remove the words which are in more than 1 groups
-        -- estimate N by hand so every category has several such words
+        -- estimate N by hand so every category has several of such words
             -- we ended with 20
     -- make features from it:
-        -- number of occurences in a text
-        -- or number of occurences per word in a text
+        #1 number of occurences in a text, not normalized
+        (-- or number of occurences per word in a text)
+
+
+Classification:
+-- several common classifiers from sklearn were used
+-- baseline is 0.51 (returning always the most frequent class)
+
+#1 0.71 ("Linear SVM",SVC(kernel="linear", C=0.025))

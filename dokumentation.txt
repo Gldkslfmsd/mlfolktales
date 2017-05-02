@@ -65,3 +65,29 @@ Classification:
 #1.1 Decision Tree 0.6777
 #2.1 Decision Tree 0.7333
 #2.2 Decision Tree round 0.70 round 70 features (TODO finish it)
+
+
+animal tales vs others, not 7 classes
+
+Whats next?
+
+0) merge our works
+finnaly) write a good report, 20 pages
+
+
+
+==================
+
+choose
+1) improving classification with new features
+J
+2) try to use the text summaries from web or book
+3) look at the new webpage, find more stories
+4) clustering/classifying of unknown
+J
+5) cross validation 
+
+10 June:
+merge, find word-net features, have results 
+
+live presentation

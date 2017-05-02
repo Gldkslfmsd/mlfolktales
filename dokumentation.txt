@@ -16,19 +16,52 @@ total)
 	
 	
 Feature selection:
--- most frequent words in each category
-    -- remove diacritics and stopwords because they are the most frequent in all texts and we can't distinguish them by it
-    -- take N mfw for each category
-        -- remove the words which are in more than 1 groups
-        -- estimate N by hand so every category has several of such words
-            -- we ended with 20
-    -- make features from it:
-        #1 number of occurences in a text, not normalized
-        (-- or number of occurences per word in a text)
+-- remove diacritics and stopwords because they are the most frequent in all texts and we can't distinguish them by it
+-- we compared different strategies 
+
+
+        
+#1.0 simple most frequent words
+-- take N mfw for each category
+  -- estimate N by hand so every category has several of such words
+  -- we ended with 20
+-- values are numbers of occurences in a text
+-- not scaled
+-- we had 42 such words, see keywords_for_features.py
+-- see plots/keyword_features_version1.pdf
+
+#1.1
+-- same as #1, but 
+    -- MinMaxScaling were used (it's better with it)
+    -- not total number of occurences in a text, but number of occ/text length, 
+    
+#2.0
+-- take N words by highest value of col_freq[w]**doc_freq[w]
+    -- col_freq is a total number of occurences in all text in a class
+    -- doc_freq is a number of documents in a class containing given word
+    -- N = 100
+-- don't remove words chosen from 2 classes
+-- in total, 242 words
+-- scaled
+-- see plots/weighted_keyword_features.pdf
+
+#2.1
+-- order features by forest features importance
+    -- see plots/forest_feature_importance.pdf
+-- add optimal number of features
+
+#2.2
+-- TODO
+-- remove correlated features
+-- cross-validation
 
 
 Classification:
 -- several common classifiers from sklearn were used
 -- baseline is 0.51 (returning always the most frequent class)
+-- here are the best results by feature sets:
 
-#1 0.71 ("Linear SVM",SVC(kernel="linear", C=0.025))
+#1.0 SVM 0.71
+#1.1 Decision Tree 0.6777
+#2.1 Decision Tree 0.7333
+#2.2 Decision Tree round 0.70 round 70 features (TODO finish it)

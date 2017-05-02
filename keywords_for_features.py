@@ -1,0 +1,2 @@
+# file generated automaticaly by freq_words_by_categories.py
+keywords = ['fox', 'wolf', 'mouse', 'dog', 'cat', 'day', 'lion', 'see', 'thought', 'claus', 'asked', 'give', 'pancake', 'water', 'cock', 'oh', 'spring', 'mother', 'leaves', 'hen', 'red', 'shoes', 'linden', 'lord', 'peter', 'heaven', 'tailor', 'smith', 'boar', 'let', 'brother', 'princess', 'hacon', 'great', 'daughter', 'woman', 'troll', 'lad', 'roland', 'long', 'devil', 'peasant']

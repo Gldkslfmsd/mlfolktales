@@ -1,6 +1,7 @@
 __author__ = "Dominik"
 
 from keywords_for_features import keywords
+from weighted_keywords_for_features import keywords # TODO předělat
 import pandas as pd
 import os
 import seaborn as sns
@@ -23,11 +24,15 @@ def extract_keywords(df):
 		f_vec['id'] = row['id']
 		f_vec['level_1'] = row.level_1
 		with open(fn) as f:
+			num_words = 0
 			for line in f:
 				ls = line.split()
 				for w in ls:
 					if w in keywords_set:
 						f_vec[w] += 1
+				num_words += len(ls)
+			for w in keywords_set:
+				f_vec[w] /= num_words
 		feature_vectors.append(f_vec)
 		
 	features = ["id"] + keywords + ["level_1"]
@@ -49,11 +54,11 @@ pp = PdfPages('keyword_features.pdf')
 for kw in keywords:
 #        x = train_f.loc[train_f['level_1'] == c][kw]
 	sns.boxplot(y=kw, x='level_1', data=train_f)
-	#plt.savefig(pp, format="pdf")
+	plt.savefig(pp, format="pdf")
 	print(kw, "done")
 	plt.clf()
 	plt.show()
-	break
+	#break
 
 pp.close()
 

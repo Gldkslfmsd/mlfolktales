@@ -48,7 +48,8 @@ Feature selection:
 #2.1
 -- order features by forest features importance
     -- see plots/forest_feature_importance.pdf
--- add optimal number of features
+-- use greedy forward selection to find optimal number of features
+    -- it's 14
 
 #2.2
 -- TODO
@@ -63,8 +64,7 @@ Classification:
 
 #1.0 SVM 0.71
 #1.1 Decision Tree 0.6777
-#2.1 Decision Tree 0.7333
-#2.2 Decision Tree round 0.70 round 70 features (TODO finish it)
+#2.1 Random Forest 0.7333
 
 
 animal tales vs others, not 7 classes

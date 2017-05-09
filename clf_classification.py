@@ -22,5 +22,5 @@ classifiers = [
 
 DATASET="%s_keyword_feats.csv"
 
-test_dataset(DATASET, classifiers, scale=True)
+test_dataset(DATASET, classifiers, scale=True, selectN=14)
     

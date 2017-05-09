@@ -22,7 +22,15 @@ classifiers = [
 
 DATASET = "%s_keyword_feats.csv"
 
-for N in range(10, 100, 10):
+bestN = 0
+best_score = 0
+for N in range(10, 20, 1):
 	print(N)
-	test_dataset(DATASET, classifiers, scale=True, selectN=N)
+	s = test_dataset(DATASET, classifiers, scale=True, selectN=N)
+	if s > best_score:
+		best_score = s
+		bestN = N
 	print()
+
+print("best")
+print(bestN, best_score)

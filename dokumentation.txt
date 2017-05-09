@@ -50,8 +50,15 @@ Feature selection:
     -- see plots/forest_feature_importance.pdf
 -- use greedy forward selection to find optimal number of features
     -- it's 14
-
+    
 #2.2
+-- use binary features, not real
+    -- 0 or 1: keywords appears at least once in a text
+-- new forward selection
+    -- optimal number is 16
+    
+
+#2.3
 -- TODO
 -- remove correlated features
 -- cross-validation
@@ -65,6 +72,7 @@ Classification:
 #1.0 SVM 0.71
 #1.1 Decision Tree 0.6777
 #2.1 Random Forest 0.7333
+#2.2 Linear SVM 0.7778
 
 
 animal tales vs others, not 7 classes

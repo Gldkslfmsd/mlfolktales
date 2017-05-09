@@ -24,9 +24,9 @@ DATASET = "%s_keyword_feats.csv"
 
 bestN = 0
 best_score = 0
-for N in range(10, 20, 1):
+for N in range(1, 200, 1):
 	print(N)
-	s = test_dataset(DATASET, classifiers, scale=True, selectN=N)
+	s = test_dataset(DATASET, classifiers, transform="binarize", selectN=N)
 	if s > best_score:
 		best_score = s
 		bestN = N

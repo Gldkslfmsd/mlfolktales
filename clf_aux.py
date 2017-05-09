@@ -33,13 +33,13 @@ def load_dataset(csv_filename):
 	return data_x, data_y
 
 
-from sklearn.preprocessing import MinMaxScaler, LabelEncoder
+from sklearn.preprocessing import MinMaxScaler, LabelEncoder, Binarizer
 
-def scale_datasets(tr_X, tr_y, te_X, te_y):
-	sx = MinMaxScaler()
-	sx.fit(tr_X)
-	tr_X = sx.transform(tr_X)
-	te_X = sx.transform(te_X)
+def transform_datasets(tr_X, tr_y, te_X, te_y, transformer):
+	tr = transformer
+	tr.fit(tr_X)
+	tr_X = tr.transform(tr_X)
+	te_X = tr.transform(te_X)
 	
 #    l = LabelEncoder()
 #    l.fit(tr_y)
@@ -48,7 +48,13 @@ def scale_datasets(tr_X, tr_y, te_X, te_y):
 	
 	return tr_X, tr_y, te_X, te_y
 
+def scale_datasets(tr_X, tr_y, te_X, te_y):
+	sx = MinMaxScaler()
+	return transform_datasets(tr_X, tr_y, te_X, te_y, sx)
 
+def binarize_datasets(tr_X, tr_y, te_X, te_y):
+	bin = Binarizer(threshold=0.0)
+	return transform_datasets(tr_X, tr_y, te_X, te_y, bin)
 
 forest_feature_rank = ['king', 'told', 'fox', 'came', 'tell', 'daughter', 'man', 'go', 'cow', 'whole', 'soon', 'money',
 					   'wife', 'ran', 'must', 'three', 'give', 'friend', 'said', 'mother', 'father', 'world', 'take',
@@ -94,7 +100,7 @@ def just_test_dataset(DATASET, classifiers, tr_X, tr_y, te_X, te_y):
 		print(score)
 	return best
 
-def test_dataset(DATASET, classifiers, scale=True, selectN=20):
+def test_dataset(DATASET, classifiers, transform="binarize", selectN=20):
 	"""DATASET: a format string like "%s_keyword_feats.csv", where %s is either train or test"""
 	tr_X, tr_y = load_dataset(DATASET % "train")
 	te_X, te_y = load_dataset(DATASET % "test")
@@ -103,9 +109,10 @@ def test_dataset(DATASET, classifiers, scale=True, selectN=20):
 		tr_X = select_feats_by_rank(tr_X, selectN)
 		te_X = select_feats_by_rank(te_X, selectN)
 	
-	if scale:
+	if transform == "scale":
 		tr_X, tr_y, te_X, te_y = scale_datasets(tr_X, tr_y, te_X, te_y)
-
+	elif transform == "binarize":
+		tr_X, tr_y, te_X, te_y = binarize_datasets(tr_X, tr_y, te_X, te_y)
 
 	print(DATASET, "loaded")
 

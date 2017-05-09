@@ -1,7 +1,7 @@
 __author__ = 'Simon'
 
 """
-Run this script to load 'corpora.txt' and save it by languages and story types so separate directories and textfiles.
+Run this script to load 'corpora.txt' and save it by languages and story types to separate directories and textfiles.
 Intended working directory is 'crawler/'.
 
 'corpora.txt' was created by 'atu_crawler.py'

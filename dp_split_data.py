@@ -1,6 +1,10 @@
 
 __author__ = "Dominik"
 
+"""Splits stories to train and test set in ratio 70:30.
+
+The distribution of level_1 classes remains the same in both sets.
+"""
 
 import pandas as pd
 import numpy as np

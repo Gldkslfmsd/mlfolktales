@@ -3,7 +3,7 @@ __author__ = "Dominik"
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-from header import *
+from clf_aux import *
 
 DATASET="%s_keyword_feats.csv"
 

@@ -1,6 +1,6 @@
 __author__ = "Dominik"
 
-from header import *
+from clf_aux import *
 import pandas as pd
 
 train = pd.DataFrame.from_csv("train_keyword_feats.csv")
@@ -22,8 +22,5 @@ classifiers = [
 
 DATASET="%s_keyword_feats.csv"
 
-for N in range(10,100,10):
-    print(N)
-    test_dataset(DATASET, classifiers, scale=True, selectN=N)
-    print()
+test_dataset(DATASET, classifiers, scale=True)
     

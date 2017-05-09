@@ -1,7 +1,8 @@
 
 __author__ = "Dominik"
 
-"""Find the most frequent words in each category and make features from that.
+"""Find the most frequent words in each category and make keyword list from that. 
+Another script makes dataset from them.
 
 We tried to include
 	-- all words including diacritics and stopwords
@@ -31,7 +32,7 @@ categories = ['Animal Tales', 'Tales of Magic', 'Anecdotes and Jokes', 'Formula 
 
 class KeywordExtractor():
 	
-	FILENAME = "keywords_for_features.py"
+	FILENAME = "gen_keywords_for_features.py"
 	def extract(self, only_unique=False, save=False):	
 		mf = {}
 		for c in categories:
@@ -115,7 +116,7 @@ class KeywordExtractor():
 	
 class WeightedMostFreqKeywordsExtractor(KeywordExtractor):
 	
-	FILENAME = "weighted_keywords_for_features.py"
+	FILENAME = "gen_weighted_keywords_for_features.py"
 
 	def most_freq_words_by_cat(self, cat, n=100):
 		"""returns n words by the """

@@ -56,6 +56,11 @@ def binarize_datasets(tr_X, tr_y, te_X, te_y):
 	bin = Binarizer(threshold=0.0)
 	return transform_datasets(tr_X, tr_y, te_X, te_y, bin)
 
+def two_class_datasets(tr_X, tr_y, te_X, te_y, cl="Animal Tales"):
+	tr_y = [ 1 if i == cl else 0 for i in tr_y ]
+	te_y = [ 1 if i == cl else 0 for i in te_y ]
+	return tr_X, tr_y, te_X, te_y
+
 forest_feature_rank = ['king', 'told', 'fox', 'came', 'tell', 'daughter', 'man', 'go', 'cow', 'whole', 'soon', 'money',
 					   'wife', 'ran', 'must', 'three', 'give', 'friend', 'said', 'mother', 'father', 'world', 'take',
 					   'put', 'say', 'time', 'shall', 'good', 'got', 'went', 'palace', 'see', 'know', 'away', 'better',
@@ -100,7 +105,7 @@ def just_test_dataset(DATASET, classifiers, tr_X, tr_y, te_X, te_y):
 		print(score)
 	return best
 
-def test_dataset(DATASET, classifiers, transform="binarize", selectN=20):
+def test_dataset(DATASET, classifiers, transform="binarize", two_class=None, selectN=20):
 	"""DATASET: a format string like "%s_keyword_feats.csv", where %s is either train or test"""
 	tr_X, tr_y = load_dataset(DATASET % "train")
 	te_X, te_y = load_dataset(DATASET % "test")
@@ -113,6 +118,9 @@ def test_dataset(DATASET, classifiers, transform="binarize", selectN=20):
 		tr_X, tr_y, te_X, te_y = scale_datasets(tr_X, tr_y, te_X, te_y)
 	elif transform == "binarize":
 		tr_X, tr_y, te_X, te_y = binarize_datasets(tr_X, tr_y, te_X, te_y)
+		
+	if two_class:
+		tr_X, tr_y, te_X, te_y = two_class_datasets(tr_X, tr_y, te_X, te_y, cl=two_class)
 
 	print(DATASET, "loaded")
 

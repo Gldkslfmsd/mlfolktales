@@ -8,7 +8,7 @@ test = pd.DataFrame.from_csv("test_keyword_feats.csv")
 
 classifiers = [
 	# (name, classifier, optional limit on size of training data)
-	#    ("baseline", DummyClassifier("most_frequent")),
+	    ("baseline", DummyClassifier("most_frequent")),
 	#    ("3-Nearest Neighbors", KNeighborsClassifier(3)),
 	#    ("5-Nearest Neighbors", KNeighborsClassifier(5)),
 	#    ("10-Nearest Neighbors", KNeighborsClassifier(10)),
@@ -17,20 +17,21 @@ classifiers = [
 	("Decision Tree", DecisionTreeClassifier(max_depth=5, random_state=1)),
 	("Random Forest", RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1, random_state=1)),
 	("AdaBoost", AdaBoostClassifier()),
-	#    ("Naive Bayes", GaussianNB()),
+	("Naive Bayes", GaussianNB()),
 ]
 
 DATASET = "%s_keyword_feats.csv"
 
-bestN = 0
-best_score = 0
-for N in range(1, 200, 1):
-	print(N)
-	s = test_dataset(DATASET, classifiers, transform="binarize", selectN=N, two_class='Tales of Magic')
-	if s > best_score:
-		best_score = s
-		bestN = N
-	print()
+classes = [#'Tales of the Stupid Ogre', 
+		   'Animal Tales', 
+		   #'Realistic Tales', 
+		   'Anecdotes and Jokes', 
+		   'Tales of Magic',
+		   #'Formula Tales', 
+		   #'Religious Tales'
+		 ]
 
-print("best")
-print(bestN, best_score)
+for cl in classes:
+	print(cl)
+	test_dataset(DATASET, classifiers, transform="binarize", selectN=22, two_class=cl)
+	print()

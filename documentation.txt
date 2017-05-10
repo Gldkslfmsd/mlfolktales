@@ -64,7 +64,8 @@ Feature selection:
 -- cross-validation
 
 
-Classification:
+7-class classification:
+=======================
 -- several common classifiers from sklearn were used
 -- baseline is 0.51 (returning always the most frequent class)
 -- here are the best results by feature sets:
@@ -74,8 +75,23 @@ Classification:
 #2.1 Random Forest 0.7333
 #2.2 Linear SVM 0.7778
 
+2-class classification:
+=======================
 
-animal tales vs others, not 7 classes
+Animal Tales vs. others
+baseline 0.7444
+#2.2 AdaBoost 0.9333
+
+Anecdotes and Jokes
+baseline 0.8667
+#2.2 0.9111
+ 
+Tales of Magic
+baseline 0.5111
+AdaBoost 0.8889
+
+
+
 
 Whats next?
 

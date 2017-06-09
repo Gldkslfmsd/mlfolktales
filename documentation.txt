@@ -63,6 +63,9 @@ Feature selection:
 -- remove correlated features
 -- cross-validation
 
+#3
+-- Martin's keywords for animal/notanimal tales
+
 
 7-class classification:
 =======================
@@ -81,14 +84,17 @@ Feature selection:
 Animal Tales vs. others
 baseline 0.7444
 #2.2 AdaBoost 0.9333
+#3 Naive Bayes 0.7778
 
 Anecdotes and Jokes
 baseline 0.8667
 #2.2 0.9111
+#3 Random Forest 0.8667
  
 Tales of Magic
 baseline 0.5111
 AdaBoost 0.8889
+#3 AdaBoost 0.5444
 
 
 

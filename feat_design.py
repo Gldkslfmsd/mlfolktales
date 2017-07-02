@@ -92,7 +92,7 @@ class KeywordExtractor():
 
 	def save_to_file(self):
 		f = open(self.FILENAME, "w")
-		f.write("# file generated automaticaly by freq_words_by_categories.py\n")
+		f.write("# file generated automaticaly by feat_design.py\n")
 		f.write("keywords = ")
 		agg = []
 		for c in categories:

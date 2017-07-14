@@ -28,12 +28,12 @@ for element in tiere:
 
             keyworddict[element] = tiere[element]
 
-print(keyworddict)
-
 file = open("keywordstitle.txt", "w")
 
 for a in keyworddict:
 
-    file.write(a + "  -  " + str(keyworddict[a]) + "\n")
+    if keyworddict[a] >= 2:
+
+        file.write(a + "  -  " + str(keyworddict[a]) + "\n")
 
 file.close()

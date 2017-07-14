@@ -6,7 +6,7 @@ def notanimal():
 
     vokabelbuch = {}
 
-    path = "C:\\Users\\Martin\\Desktop\\git python\\mlfolktales-master\\Fairytale Corpus\\English\\"
+    path = "../../../Fairytale Corpus/English/"
 
     sonderzeichen = ['.', ',', '"', '?', '-', '!', "'", ':', ';', '—', '[', ']']
 

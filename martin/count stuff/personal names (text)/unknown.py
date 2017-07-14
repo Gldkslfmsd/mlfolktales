@@ -1,9 +1,10 @@
 import os
+from nltk.tag import pos_tag
 
 
-#gibt durchschnittliche wörtliche reden pro text zurück
-def countunknownsymbol():
 
+# gibt durchschnittliche wörtliche reden pro text zurück
+def word():
     ratio = 0
 
     count = 0
@@ -22,45 +23,43 @@ def countunknownsymbol():
     for element in pathlist:
 
         for folder in element:
-    
+
             clone += folder
             try:
                 for filename in os.listdir(clone):
 
                     lines = open(clone + "\\" + filename, "r").readlines()
 
-                    del lines [0]
-                    del lines [0]
-                    del lines [0]
-                    del lines [0]
+                    del lines[0]
+                    del lines[0]
+                    del lines[0]
+                    del lines[0]
 
-                    #lines enthält jetzt nur noch ein element, welches den text einer geschichte enthält
+                    # lines enthält jetzt nur noch ein element, welches den text einer geschichte enthält
 
 
-            
+
 
                     text = lines[0]
 
-                    for word in text:
+                    tagged_sent = pos_tag(text.split())
 
-                        for letter in word:
+                    propernouns = [word for word, pos in tagged_sent if pos == 'NNP']
 
-                            if (letter in sonderzeichen):
+                    count += len(propernouns)
 
-                                count += 1
-                    
                     ratio += 1
-    
-         
+
+
             except UnicodeDecodeError:
-                #to do: find different encoding way
+                # to do: find different encoding way
                 pass
             clone = path
-        
-    return count/ratio
+
+    return count / ratio
 
 
 
-    
+
 
 

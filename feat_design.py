@@ -119,7 +119,7 @@ class WeightedMostFreqKeywordsExtractor(KeywordExtractor):
 	FILENAME = "gen_weighted_keywords_for_features.py"
 
 	def most_freq_words_by_cat(self, cat, n=100):
-		"""returns n words by the """
+		"""returns n words by the highest """
 		files = [ os.path.join(DIR,"%s.txt" %f) for f in train.loc[train['level_1'] == cat].id ]
 		col_freq = Counter()  # collection frequency: aggregated occurrences in all documents
 		doc_freq = Counter()  # number of documents containing word

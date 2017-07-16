@@ -16,7 +16,7 @@ total)
 	
 	
 Feature selection:
--- remove diacritics and stopwords because they are the most frequent in all texts and we can't distinguish them by it
+-- remove punctuation and stopwords because they are the most frequent in all texts and we can't distinguish them by it
 -- we compared different strategies 
 
 

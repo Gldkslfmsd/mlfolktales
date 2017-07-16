@@ -30,7 +30,7 @@ Dominik Macháček @Gldkslfmsd <dominik.machacek-at-matfyz.cz>
 
 Martin Banzer @tensorride <martin.banzer-at-gmx.de>
 
-- ` wc -lc martin/*/*/*.py`
+- `wc -lc martin/*/*/*.py martin/*/*/*/*.py`
 -  6382 lines of source code
 -  164529 bytes of source code
 

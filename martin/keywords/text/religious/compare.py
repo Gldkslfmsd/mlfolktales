@@ -32,7 +32,7 @@ file = open("religiouskeywordstext.txt", "w")
 
 for a in keyworddict:
 
-    if keyworddict[a] >= 10:
+    if keyworddict[a] >= 1:
 
         file.write(a + "  -  " + str(keyworddict[a]) + "\n")
 

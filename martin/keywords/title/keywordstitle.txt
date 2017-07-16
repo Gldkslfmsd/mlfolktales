@@ -1,7 +1,0 @@
-grasshopper  -  4
-sparrow  -  2
-stork  -  2
-rat  -  3
-mouse  -  8
-town  -  3
-country  -  2

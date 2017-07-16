@@ -6,7 +6,7 @@ def notanimal():
 
     vokabelbuch = {}
 
-    path = "../../../Fairytale Corpus/English/"
+    path = "../../../../Fairytale Corpus/English/"
 
     sonderzeichen = ['.', ',', '"', '?', '-', '!', "'", ':', ';', '—', '[', ']']
 

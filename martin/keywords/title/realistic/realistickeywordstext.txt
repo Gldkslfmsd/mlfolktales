@@ -1,0 +1,15 @@
+huntsmen  -  1
+buffalo  -  1
+leather  -  1
+robber  -  1
+bridegroom  -  1
+sweetheart  -  1
+painted  -  1
+say  -  1
+hacon  -  1
+grizzlebeard  -  1
+thrushbeard  -  1
+taming  -  1
+shrew  -  1
+annie  -  1
+maleen  -  1

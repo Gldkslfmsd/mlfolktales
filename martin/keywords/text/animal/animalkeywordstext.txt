@@ -1,0 +1,9 @@
+mouse  -  69
+paws  -  11
+fox  -  107
+reynard  -  24
+monkey  -  13
+tortoise  -  14
+crane  -  13
+musician  -  34
+billy  -  16

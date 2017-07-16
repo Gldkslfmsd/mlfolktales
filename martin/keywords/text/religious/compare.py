@@ -1,13 +1,13 @@
-import animal
-import notanimal
+import religious
+import notreligious
 
 keyworddict = {}
 
 #tiere ist dict
-tiere = animal.animal()
+tiere = religious.animal()
 
 #anderes ist dict
-anderes = notanimal.notanimal()
+anderes = notreligious.notanimal()
 
 
 
@@ -28,7 +28,7 @@ for element in tiere:
 
             keyworddict[element] = tiere[element]
 
-file = open("animalkeywordstext.txt", "w")
+file = open("religiouskeywordstext.txt", "w")
 
 for a in keyworddict:
 

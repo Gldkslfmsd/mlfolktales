@@ -1,13 +1,13 @@
-import animal
-import notanimal
+import formula
+import notformula
 
 keyworddict = {}
 
 #tiere ist dict
-tiere = animal.animal()
+tiere = formula.animal()
 
 #anderes ist dict
-anderes = notanimal.notanimal()
+anderes = notformula.notanimal()
 
 
 
@@ -28,7 +28,7 @@ for element in tiere:
 
             keyworddict[element] = tiere[element]
 
-file = open("animalkeywordstext.txt", "w")
+file = open("formulakeywordstext.txt", "w")
 
 for a in keyworddict:
 

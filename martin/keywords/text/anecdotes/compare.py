@@ -1,13 +1,13 @@
-import animal
-import notanimal
+import anecdotes
+import notanecdotes
 
 keyworddict = {}
 
 #tiere ist dict
-tiere = animal.animal()
+tiere = anecdotes.animal()
 
 #anderes ist dict
-anderes = notanimal.notanimal()
+anderes = notanecdotes.notanimal()
 
 
 
@@ -28,7 +28,7 @@ for element in tiere:
 
             keyworddict[element] = tiere[element]
 
-file = open("animalkeywordstext.txt", "w")
+file = open("anecdoteskeywordstext.txt", "w")
 
 for a in keyworddict:
 

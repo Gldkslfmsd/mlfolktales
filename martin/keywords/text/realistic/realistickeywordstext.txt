@@ -1,0 +1,9 @@
+count  -  15
+sweetheart  -  21
+bold  -  14
+hacon  -  33
+grizzlebeard  -  19
+thrushbeard  -  10
+annie  -  30
+maleen  -  21
+nettle  -  10

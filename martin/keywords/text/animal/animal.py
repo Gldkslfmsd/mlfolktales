@@ -7,7 +7,7 @@ def animal():
 
     vokabelbuch = {}
 
-    path = "../../../Fairytale Corpus/English/"
+    path = "../../../../Fairytale Corpus/English/"
 
     sonderzeichen = ['.', ',', '"', '?', '-', '!', "'", ':', ';', '—', '[', ']']
 

@@ -1,13 +1,13 @@
-import animal
-import notanimal
+import magic
+import notmagic
 
 keyworddict = {}
 
 #tiere ist dict
-tiere = animal.animal()
+tiere = magic.animal()
 
 #anderes ist dict
-anderes = notanimal.notanimal()
+anderes = notmagic.notanimal()
 
 
 
@@ -28,11 +28,11 @@ for element in tiere:
 
             keyworddict[element] = tiere[element]
 
-file = open("animalkeywordstext.txt", "w")
+file = open("magickeywordstext.txt", "w")
 
 for a in keyworddict:
 
-    if keyworddict[a] >= 10:
+    if keyworddict[a] >= 1:
 
         file.write(a + "  -  " + str(keyworddict[a]) + "\n")
 

@@ -1,5 +1,7 @@
 # mlfolktales
 
+## How to run and contribute
+
 Use virtualenv:
 
 `virtualenv -p python3 p3`
@@ -18,3 +20,22 @@ After addition of a new module:
 
 and commit `pip_requirements.txt`
 
+## Contributions
+
+Dominik Macháček @Gldkslfmsd <dominik.machacek-at-matfyz.cz>
+
+- `wc -lc *.py observations/*.py`
+- 1117 lines of source code
+- 33118 bytes of source code
+
+Martin Banzer @tensorride <martin.banzer-at-gmx.de>
+
+- ` wc -lc martin/*/*/*.py`
+- 4056 lines of source code (not a final number)
+- 102395 bytes of source code
+
+Simon Ahrendt @SimonAhrendt 
+
+- `wc -lc crawler/*.py`
+- 501 lines of source code
+- 17948 bytes of source code

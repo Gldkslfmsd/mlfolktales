@@ -31,8 +31,8 @@ Dominik Macháček @Gldkslfmsd <dominik.machacek-at-matfyz.cz>
 Martin Banzer @tensorride <martin.banzer-at-gmx.de>
 
 - ` wc -lc martin/*/*/*.py`
-- 4056 lines of source code (not a final number)
-- 102395 bytes of source code
+-  6382 lines of source code
+-  164529 bytes of source code
 
 Simon Ahrendt @SimonAhrendt 
 

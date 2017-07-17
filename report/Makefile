@@ -9,6 +9,7 @@ pdf main.pdf: main.tex $(wildcard *.tex) bibliography.bib bars.tex
 	bibtex main 
 	pdflatex $<
 	pdflatex $<
+	cp main.pdf report.pdf
 
 clean:
 	rm -f *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg
